@@ -1,0 +1,50 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+#app {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(90deg, #63448C 0%, #46A0B3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+a, img {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button, input, a, textarea, select {
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+button:focus, a:focus, input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline-offset: 3px;
+  outline-style: dashed;
+  outline-color: #333;
+  outline-width: 1px;
+}
