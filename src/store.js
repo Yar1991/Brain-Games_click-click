@@ -9,5 +9,13 @@ export const useGameState = defineStore("game", () => {
     gameStatus.value = val;
   }
 
-  return { gameStatus, changeStatus, points };
+  function incrementPoints() {
+    points.value += 50;
+  }
+
+  function resetPoints() {
+    points.value = 0;
+  }
+
+  return { gameStatus, changeStatus, points, incrementPoints, resetPoints };
 });

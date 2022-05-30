@@ -14,7 +14,6 @@ const getTarget = () => {
     gridList[randomIndex.value].classList.remove("target");
   }
   gridList[random].classList.add("target");
-  // randomIndex.value = randomIndex.value !== random ? random : getRandom();
   randomIndex.value = random;
   return;
 }
@@ -22,7 +21,7 @@ const getTarget = () => {
 function clickCell(target) {
   if (target - 1 === randomIndex.value) {
     clicked.value = target;
-    gameState.points += 50;
+    gameState.incrementPoints();
     getTarget();
   } else {
     return;

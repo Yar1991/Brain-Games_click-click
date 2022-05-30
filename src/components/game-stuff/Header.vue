@@ -3,15 +3,15 @@ import { ref, watch, onUnmounted } from "vue";
 import { useGameState } from "../../store"
 
 const gameState = useGameState();
-let timer = ref(29);
+let timer = ref(gameState.gameStatus.includes('training') ? 29 : 59);
 
 const watchState = watch(() => gameState.gameStatus, () => {
   if (['training-start', 'playing-start'].includes(gameState.gameStatus)) {
     const interval = setInterval(() => {
       if (timer.value === 0) {
         gameState.gameStatus === 'training-start' ? gameState.changeStatus('training-end') : gameState.changeStatus('playing-end');
-        timer.value = 29;
-        gameState.points = 0;
+        timer.value = gameState.gameStatus === 'training-end' ? 29 : 59;
+        gameState.gameStatus === 'training-end' && gameState.resetPoints();
         return clearInterval(interval);
       }
       timer.value--;

@@ -24,8 +24,6 @@ function startPlaying() {
           d="M1.15234 -32.618L324.738 -134.693L711.096 526.157L549.303 577.195L813.935 1134.13L184.506 407.642L386.545 343.909L1.15234 -32.618Z"
           fill="black" fill-opacity="0.07" />
       </svg>
-
-
     </div>
     <Transition name="fade" mode="out-in">
       <div v-if="gameState.gameStatus === 'start'" class="home-content">
@@ -38,6 +36,29 @@ function startPlaying() {
           </div>
           <div class="btn-box play-box">
             <button class="play" @click="startPlaying">Play</button>
+            <span class="btn-layer"></span>
+          </div>
+        </div>
+      </div>
+      <div class="results" v-else-if="gameState.gameStatus === 'playing-end'">
+        <h2 class="heading">Results</h2>
+        <div class="stats">
+          <div class="stats-block">
+            <h4>points scored:</h4>
+            <span>{{ gameState.points }}</span>
+          </div>
+          <div class="stats-block">
+            <h4>speed level:</h4>
+            <svg></svg>
+          </div>
+        </div>
+        <div class="btns">
+          <div class="btn-box play-box">
+            <button class="play" @click="startPlaying">Play Again</button>
+            <span class="btn-layer"></span>
+          </div>
+          <div class="btn-box play-box">
+            <button class="play" @click="gameState.changeStatus('start')">Home</button>
             <span class="btn-layer"></span>
           </div>
         </div>
