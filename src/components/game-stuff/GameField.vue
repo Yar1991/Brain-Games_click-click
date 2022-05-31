@@ -9,7 +9,7 @@ const randomIndex = ref();
 const getRandom = () => Math.floor(Math.random() * 60);
 const getTarget = () => {
   const random = getRandom();
-  const gridList = [...gridRef.value.children];
+  const gridList = gridRef.value && [...gridRef.value.children];
   if (randomIndex.value >= 0) {
     gridList[randomIndex.value].classList.remove("target");
   }
@@ -67,7 +67,6 @@ onUnmounted(() => {
   gap: 3px;
   border-radius: 1rem;
   align-self: center;
-  /* overflow: hidden; */
 
   .game-cell {
     background-color: #ededed;
@@ -79,6 +78,23 @@ onUnmounted(() => {
       position: relative;
       background-color: #4ba1b9;
       transition: background-color 0.4s ease;
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: #64d6f5;
+        border-radius: 50%;
+        filter: blur(10px);
+        transform: scale(0);
+        transition: transform 0.2s ease, opacity 0.4s ease;
+      }
+
+      &:active::after {
+        transform: scale(2);
+        opacity: 0;
+      }
     }
   }
 
