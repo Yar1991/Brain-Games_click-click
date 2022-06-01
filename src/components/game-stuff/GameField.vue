@@ -10,10 +10,10 @@ const getRandom = () => Math.floor(Math.random() * 60);
 const getTarget = () => {
   const random = getRandom();
   const gridList = gridRef.value && [...gridRef.value.children];
-  if (randomIndex.value >= 0) {
-    gridList[randomIndex.value].classList.remove("target");
+  if (randomIndex?.value >= 0 && gridList?.length > 0) {
+    gridList[randomIndex?.value].classList.remove("target");
   }
-  gridList[random].classList.add("target");
+  gridList?.length > 0 && gridList[random].classList.add("target");
   randomIndex.value = random;
   return;
 }
