@@ -4,6 +4,8 @@ A simple game to improve the speed of your reaction. You can check it [here](htt
 
 ## Technologies:
 
+- Sass
 - Vue
+  - Pinia
   - Motion One
 - Firebase
