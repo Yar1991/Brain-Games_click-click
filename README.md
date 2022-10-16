@@ -1,6 +1,6 @@
 # Project "Brain Games: Click-Click"
 
-A simple game to improve the speed of your reaction. Only for desktop. You can check it [here](https://click-click-ac28c.web.app/).
+A simple game to improve the speed of your reaction. Only for desktop. You can check it [here](https://click-click-ac28c.web.app/)
 
 ## Technologies:
 
